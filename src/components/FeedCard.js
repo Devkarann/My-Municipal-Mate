@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getToken } from "../service/AuthService";
+import { FaUserCircle } from "react-icons/fa";
+import "./FeedCard.css";
 
 const FeedCard = () => {
   const [complaints, setComplaints] = useState([]);
@@ -13,19 +15,23 @@ const FeedCard = () => {
           "http://localhost:8081/api/complaints/",
           {
             headers: {
-              Authorization: `Bearer ${token}`, // Add the token to the headers
+              Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log(response);
-        setComplaints(response.data);
+        // Sort complaints by date in descending order
+        const sortedComplaints = response.data.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        setComplaints(sortedComplaints);
       } catch (error) {
         console.error("Error fetching complaints:", error);
+        // Optionally, handle errors or show a user-friendly message
       }
     };
 
     fetchComplaints();
-  }, []);
+  }, [token]);
 
   const convertBlobToImage = (blobData) => {
     const byteCharacters = atob(blobData);
@@ -38,22 +44,28 @@ const FeedCard = () => {
   };
 
   return (
-    <div className="feed-container">
+    <div id="feeds-box">
       {complaints.map((complaint) => (
-        <div key={complaint.id} className="feed-card">
-          <p>
-            <strong>User:</strong> {complaint.pname}
-          </p>
-          {/* Displaying the image if available */}
+        <div key={complaint.id} className="feed-item">
+          <div className="feed-header">
+            <FaUserCircle className="profile-icon" />
+            <strong>{complaint.pname}</strong>
+          </div>
           {complaint.imageData && (
             <img
               src={convertBlobToImage(complaint.imageData)}
               alt="Complaint"
-              style={{ maxWidth: "100%", height: "auto" }}
+              className="feed-image"
             />
           )}
-          <p>{complaint.location}</p>
-          <h3>{complaint.status}</h3>
+          <p className="feed-status">
+            <strong>Status: </strong>
+            {complaint.status}
+          </p>
+          <p className="feed-location">
+            <strong>Location: </strong>
+            {complaint.location}
+          </p>
         </div>
       ))}
     </div>
