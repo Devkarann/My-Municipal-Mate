@@ -11,7 +11,7 @@ const Complain = () => {
     // Handle image click
     const handleImageClick = (option) => {
         setSelectedOption(option);
-        setIsDropdownOpen(false); // Close the dropdown
+        setIsDropdownOpen(false); 
     };
 
     // Scroll functions
