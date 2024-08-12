@@ -12,6 +12,7 @@ import LoginComponent from './components/SignInPage';
 import RegisterComponent from './components/RegisterComponent';
 import ForgetPassword from './components/ForgetPassword';
 import Feedback from './components/Feedback';
+import Dashboard from './components/Dashboard';
 import './i18n';
 
 
@@ -34,6 +35,7 @@ function App() {
       <Route path="/register" element={<RegisterComponent></RegisterComponent>} ></Route>
       <Route path="/forgot-password" element={<ForgetPassword></ForgetPassword>} ></Route>
       <Route path="/feedback" element={<Feedback></Feedback>} ></Route>
+      <Route path='/dashadmin' element={<Dashboard/>}/>
 
       </Routes>
       {/* <Footer></Footer> */}

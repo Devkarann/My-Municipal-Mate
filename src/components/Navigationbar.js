@@ -44,7 +44,7 @@ const Navigationbar = () => {
             <div id="side-menu" className={`side-menu ${isMenuOpen ? 'show' : ''}`}>
                 <button className="close-btn" onClick={toggleMenu}>x</button>
                 <ul>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/dashadmin">Dashboard</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/adminLogin">Admin Login</Link></li>
                     <li><Link to="/password-settings">Password Settings</Link></li>

@@ -1,0 +1,67 @@
+/* Main container for the sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem; /* 5 * 0.25rem */
+    padding: 1.25rem; /* 5 * 0.25rem */
+    width: 14rem; /* 56 * 0.25rem */
+    margin-top: 1rem; /* 20 * 0.25rem */
+    margin-bottom: 1rem;
+    margin-left: 1.25rem; /* 5 * 0.25rem */
+    height: 67.5vh;
+    border: 2px solid #D1D5DB; /* gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #F3F4F6; /* gray-100 */
+    box-shadow: 0 4px 6px rgba(253, 186, 116, 0.3); /* shadow-md shadow-orange-300 */
+}
+
+/* Styling for navigation items */
+.nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem; /* p-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: white;
+    background-color: #4B5563; /* gray-600 */
+}
+
+.nav-item.active {
+    background-color:rgb(15, 89, 89)
+}
+
+.nav-item:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for icons */
+.icon {
+    margin-right: 0.75rem; /* mr-3 */
+}
+
+/* Styling for labels */
+.label {
+    font-weight: 600; /* font-semibold */
+}
+
+/* Styling for the sign-out button */
+.sign-out {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem; /* p-2 */
+    margin-top: auto;
+    background-color: #EF4444; /* red-500 */
+    color: white;
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+
+.sign-out:hover {
+    transform: scale(1.05);
+}
