@@ -13,8 +13,8 @@ import RegisterComponent from './components/RegisterComponent';
 import ForgetPassword from './components/ForgetPassword';
 import Feedback from './components/Feedback';
 import Dashboard from './components/Dashboard';
+import Admin from './components/Admin';
 import './i18n';
-
 
 function App() {
 
@@ -36,6 +36,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgetPassword></ForgetPassword>} ></Route>
       <Route path="/feedback" element={<Feedback></Feedback>} ></Route>
       <Route path='/dashadmin' element={<Dashboard/>}/>
+      <Route path='/adminLogin' element={<Admin/>}/>
 
       </Routes>
       {/* <Footer></Footer> */}

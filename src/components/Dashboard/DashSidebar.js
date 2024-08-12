@@ -37,7 +37,7 @@ const DashSidebar = () => {
                     to={`/dashadmin?tab=${item.to}`}
                     className={`nav-item ${tab === item.to ? 'active' : ''}`}
                 >
-                    <item.icon className='icon' size={20} />
+                    <item.icon className='icon' size={20} style={{color: 'white'}}/>
                     <span className='label'>{item.label}</span>
                 </NavLink>
             ))}
