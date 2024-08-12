@@ -13,6 +13,7 @@ import Feedback from "./components/Feedback";
 import Dashboard from "./components/Dashboard";
 import Admin from "./components/Admin";
 import { getToken } from "./service/AuthService";
+import SignIn from "./components/SignInPage";
 import "./i18n";
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             )
           }
         />
+        <Route path="/signin" element={<SignIn></SignIn>} />
         <Route path="/register" element={<RegisterComponent />} />
         <Route path="/forgot-password" element={<ForgetPassword />} />
         <Route path="/feedback" element={<Feedback />} />

@@ -30,27 +30,6 @@ const ForgetPassword = () => {
     }));
   };
 
-  // const handleOtpChange = (e) => {
-  //   setOtp(e.target.value);
-  // };
-
-  // const handleVerify = async (email) => {
-  //   try {
-  //     // Example API call
-  //     // const response = await verifyEmailApi(email);
-  //     // if (response.status === 201) {
-  //     //   setVerified('Verified');
-  //     // } else {
-  //     //   setVerified('Not Verified');
-  //     // }
-
-  //     // For demonstration purposes:
-  //     setVerified("Verified"); // or 'Not Verified' based on your API response
-  //   } catch (error) {
-  //     console.error("Verification failed", error);
-  //     setVerified("Not Verified");
-  //   }
-  // };
   const handleOtpChange = (e, index) => {
     const { value } = e.target;
     const newOtp = [...otp];
@@ -76,16 +55,7 @@ const ForgetPassword = () => {
     }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (formData.password !== formData.confirmpassword) {
-  //     alert("Passwords do not match");
-  //     return;
-  //   }
-  //   // Handle the form submission, e.g., API call to reset password
-  //   console.log("Form data:", formData, "OTP:", otp);
-  // };
-
+  //
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmpassword) {
@@ -103,7 +73,7 @@ const ForgetPassword = () => {
           confirmPassword: formData.confirmpassword,
         });
         console.log("Password reset successful");
-        navigate("/login"); // Redirect to login page
+        navigate("/signin"); // Redirect to sign-in page
       } catch (error) {
         console.error("Error resetting password", error);
       }
@@ -113,7 +83,7 @@ const ForgetPassword = () => {
   };
 
   const handleSignUpRedirect = () => {
-    navigate("/register");
+    navigate("/signin");
   };
 
   return (
@@ -146,21 +116,12 @@ const ForgetPassword = () => {
 
           {verified === "Verified" && (
             <div className="otp-group">
-              {/* <input
-                type="text"
-                placeholder="Enter OTP"
-                id="otp"
-                className="otp-input"
-                maxLength="4"
-                value={otp}
-                onChange={handleOtpChange}
-              /> */}
               {otp.map((digit, index) => (
                 <input
                   key={index}
-                  type="number"
-                  min="0"
-                  max="9"
+                  // type="number"
+                  // min="0"
+                  // max="9"
                   id={`otp-${index}`}
                   className="otp-input"
                   value={digit}
@@ -206,10 +167,12 @@ const ForgetPassword = () => {
             <button type="submit" className="submit-button">
               Reset Password
             </button>
-            <h4 className="credentials-link">Remember Credentials?</h4>
+            {/* <h4 className="credentials-link">Remember Credentials?</h4> */}
             <h4 className="signup-link">
               Don't have an account?{" "}
-              <span className="signup-text">Sign Up</span>
+              <span className="signup-text" onClick={handleSignUpRedirect}>
+                Sign Up
+              </span>
             </h4>
           </div>
         </div>
