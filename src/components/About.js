@@ -52,7 +52,7 @@ export default function About() {
     };
 
     return (
-        <div className="about-container">
+        <div className="about-container" style={{backgroundColor: 'whitesmoke'}}>
             <div className="truck-about">
                 <div className="truck">
                     <img src={truckImage} alt="Truck" />
