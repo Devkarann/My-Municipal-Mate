@@ -1,46 +1,60 @@
-
-import React, {useState } from 'react';
-import Navigationbar from './components/Navigationbar';
-import { Route } from 'react-router-dom';
-import { Routes } from 'react-router-dom';
-import FeedComponent from './components/FeedComponent';
-import Footer from './components/Footer';
-import Complain  from './components/Complain';
-import About from './components/About';
-import Contactus from './components/Contactus';
-import LoginComponent from './components/SignInPage';
-import RegisterComponent from './components/RegisterComponent';
-import ForgetPassword from './components/ForgetPassword';
-import Feedback from './components/Feedback';
-import Dashboard from './components/Dashboard';
-import Admin from './components/Admin';
-import './i18n';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navigationbar from "./components/Navigationbar";
+import FeedComponent from "./components/FeedCard";
+import Footer from "./components/Footer";
+import Complain from "./components/Complain";
+import About from "./components/About";
+import Contactus from "./components/Contactus";
+import SignInPage from "./components/SignInPage"; // Corrected import
+import RegisterComponent from "./components/RegisterComponent";
+import ForgetPassword from "./components/ForgetPassword";
+import Feedback from "./components/Feedback";
+import Dashboard from "./components/Dashboard";
+import Admin from "./components/Admin";
+import { getToken } from "./service/AuthService";
+import "./i18n";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!getToken());
 
-  const[isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogin=()=>{
+  const handleLogin = () => {
     setIsAuthenticated(true);
-  }
+  };
+
+  // const handleAdminLogin = () => {
+  //   setIsAdminAuthenticated(true);
+  // };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    // setIsAdminAuthenticated(false);
+  };
 
   return (
     <div className="App">
-      <Navigationbar></Navigationbar>
+      <Navigationbar onLogout={handleLogout} />
       <Routes>
-      <Route path="/" element={<About></About>}></Route>
-      <Route path="/ContactUs" element={<Contactus></Contactus>}></Route>
-      <Route path="/Feed" element={<FeedComponent></FeedComponent>}></Route>
-      <Route path="/complain" element={isAuthenticated ? (<Complain></Complain>) : <LoginComponent onLogin={handleLogin}></LoginComponent>}></Route>
-      <Route path="/register" element={<RegisterComponent></RegisterComponent>} ></Route>
-      <Route path="/forgot-password" element={<ForgetPassword></ForgetPassword>} ></Route>
-      <Route path="/feedback" element={<Feedback></Feedback>} ></Route>
-      <Route path='/dashadmin' element={<Dashboard/>}/>
-      <Route path='/adminLogin' element={<Admin/>}/>
-
+        <Route path="/" element={<About />} />
+        <Route path="/ContactUs" element={<Contactus />} />
+        <Route path="/Feed" element={<FeedComponent />} />
+        <Route
+          path="/complain"
+          element={
+            isAuthenticated ? (
+              <Complain />
+            ) : (
+              <SignInPage onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route path="/register" element={<RegisterComponent />} />
+        <Route path="/forgot-password" element={<ForgetPassword />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/dashadmin" element={<Dashboard />} />
+        <Route path="/adminLogin" element={<Admin />} />
       </Routes>
-      {/* <Footer></Footer> */}
-
+      {/* <Footer /> */}
     </div>
   );
 }

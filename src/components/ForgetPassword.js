@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AiOutlineMail } from 'react-icons/ai';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { SlLock } from 'react-icons/sl';
-import './ForgetPassword.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineMail } from "react-icons/ai";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { SlLock } from "react-icons/sl";
+import MyMunicipalService from "../service/MyMunicipalService";
+import "./ForgetPassword.css";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
   const [passVisible, setPassVisible] = useState(false);
   const [cpassVisible, setCPassVisible] = useState(false);
   const [formData, setFormData] = useState({});
-  const [verified, setVerified] = useState('Verify');
-  const [otp, setOtp] = useState('');
+  const [verified, setVerified] = useState("Verify");
+  const [otp, setOtp] = useState(["", "", "", ""]);
 
   const handlePassVisible = () => {
     setPassVisible((prev) => !prev);
@@ -29,36 +30,90 @@ const ForgetPassword = () => {
     }));
   };
 
-  const handleOtpChange = (e) => {
-    setOtp(e.target.value);
+  // const handleOtpChange = (e) => {
+  //   setOtp(e.target.value);
+  // };
+
+  // const handleVerify = async (email) => {
+  //   try {
+  //     // Example API call
+  //     // const response = await verifyEmailApi(email);
+  //     // if (response.status === 201) {
+  //     //   setVerified('Verified');
+  //     // } else {
+  //     //   setVerified('Not Verified');
+  //     // }
+
+  //     // For demonstration purposes:
+  //     setVerified("Verified"); // or 'Not Verified' based on your API response
+  //   } catch (error) {
+  //     console.error("Verification failed", error);
+  //     setVerified("Not Verified");
+  //   }
+  // };
+  const handleOtpChange = (e, index) => {
+    const { value } = e.target;
+    const newOtp = [...otp];
+    newOtp[index] = value.slice(0, 1); // Allow only one digit per input
+    setOtp(newOtp);
+
+    if (index < 3 && value) {
+      document.getElementById(`otp-${index + 1}`).focus();
+    }
   };
 
   const handleVerify = async (email) => {
     try {
-      // Example API call
-      // const response = await verifyEmailApi(email);
-      // if (response.status === 201) {
-      //   setVerified('Verified');
-      // } else {
-      //   setVerified('Not Verified');
-      // }
-
-      // For demonstration purposes:
-      setVerified('Verified'); // or 'Not Verified' based on your API response
+      const response = await MyMunicipalService.forgotPassword({ email });
+      if (response.status === 200) {
+        setVerified("Verified");
+      } else {
+        setVerified("Not Verified");
+      }
     } catch (error) {
-      console.error('Verification failed', error);
-      setVerified('Not Verified');
+      console.error("Verification failed", error);
+      setVerified("Not Verified");
     }
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (formData.password !== formData.confirmpassword) {
+  //     alert("Passwords do not match");
+  //     return;
+  //   }
+  //   // Handle the form submission, e.g., API call to reset password
+  //   console.log("Form data:", formData, "OTP:", otp);
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmpassword) {
-      alert('Passwords do not match');
+      alert("Passwords do not match");
       return;
     }
-    // Handle the form submission, e.g., API call to reset password
-    console.log('Form data:', formData, 'OTP:', otp);
+
+    if (verified === "Verified") {
+      const otpCode = otp.join("");
+      try {
+        await MyMunicipalService.verifyOtp({
+          email: formData.email,
+          otp: otpCode,
+          newPassword: formData.password,
+          confirmPassword: formData.confirmpassword,
+        });
+        console.log("Password reset successful");
+        navigate("/login"); // Redirect to login page
+      } catch (error) {
+        console.error("Error resetting password", error);
+      }
+    } else {
+      alert("Email not verified");
+    }
+  };
+
+  const handleSignUpRedirect = () => {
+    navigate("/register");
   };
 
   return (
@@ -77,20 +132,21 @@ const ForgetPassword = () => {
             />
             <h2
               className={`status ${
-                verified === 'Verify'
-                  ? 'status-verify'
-                  : verified === 'Verified'
-                  ? 'status-verified'
-                  : 'status-not-verified'
+                verified === "Verify"
+                  ? "status-verify"
+                  : verified === "Verified"
+                  ? "status-verified"
+                  : "status-not-verified"
               }`}
               onClick={() => handleVerify(formData.email)}
             >
               {verified}
             </h2>
           </div>
-          {verified === 'Verified' && (
+
+          {verified === "Verified" && (
             <div className="otp-group">
-              <input
+              {/* <input
                 type="text"
                 placeholder="Enter OTP"
                 id="otp"
@@ -98,17 +154,30 @@ const ForgetPassword = () => {
                 maxLength="4"
                 value={otp}
                 onChange={handleOtpChange}
-              />
+              /> */}
+              {otp.map((digit, index) => (
+                <input
+                  key={index}
+                  type="number"
+                  min="0"
+                  max="9"
+                  id={`otp-${index}`}
+                  className="otp-input"
+                  value={digit}
+                  onChange={(e) => handleOtpChange(e, index)}
+                  onFocus={(e) => e.target.select()}
+                />
+              ))}
             </div>
           )}
           <div className="input-group">
             <SlLock className="icon" />
             <input
-              type={passVisible ? 'text' : 'password'}
+              type={passVisible ? "text" : "password"}
               placeholder="Password"
               id="password"
               className="input"
-              disabled={verified !== 'Verified'}
+              disabled={verified !== "Verified"}
               onChange={handleChange}
             />
             {passVisible ? (
@@ -120,11 +189,11 @@ const ForgetPassword = () => {
           <div className="input-group">
             <SlLock className="icon" />
             <input
-              type={cpassVisible ? 'text' : 'password'}
+              type={cpassVisible ? "text" : "password"}
               placeholder="Confirm Password"
               id="confirmpassword"
               className="input"
-              disabled={verified !== 'Verified'}
+              disabled={verified !== "Verified"}
               onChange={handleChange}
             />
             {cpassVisible ? (
@@ -139,7 +208,7 @@ const ForgetPassword = () => {
             </button>
             <h4 className="credentials-link">Remember Credentials?</h4>
             <h4 className="signup-link">
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <span className="signup-text">Sign Up</span>
             </h4>
           </div>

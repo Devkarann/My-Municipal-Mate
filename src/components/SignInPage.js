@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate ,Link } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { setToken } from "../service/AuthService";
 import AuthService from '../service/MyMunicipalService'
 import './SignPage.css';
 
@@ -9,16 +10,20 @@ const SignInPage = ({ onLogin }) => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+const navigate = useNavigate();
   const handleLogin = async () => {
     if (usernameOrEmail && password) {
       try {
         const response = await AuthService.signIn(usernameOrEmail, password);
-        console.log(response);
-        onLogin();
+        const token = response.data.accessToken;
+        setToken(token); // Store token
+        onLogin(); // Pass username to parent
+        navigate("/complain"); // Redirect to home or dashboard
       } catch (error) {
         setErrorMessage(error.message || "Login failed");
       }
+    } else {
+      setErrorMessage("Please enter your username/email and password.");
     }
   };
 
