@@ -1,0 +1,51 @@
+.success-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    /* Added padding to ensure spacing */
+}
+
+.success-content {
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 10px;
+    /* Rounded corners for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Softer shadow */
+    background: #fff;
+    margin-top: 5%;
+    /* Moves the box up slightly */
+    /* Center horizontally and ensure vertical alignment */
+    position: relative;
+}
+
+.success-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4caf50;
+}
+
+.success-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-home {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 8px;
+    /* Consistent rounded corners */
+    text-decoration: none;
+}
+
+.back-home:hover {
+    background-color: #0056b3;
+}

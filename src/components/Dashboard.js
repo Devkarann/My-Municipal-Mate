@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import DashSidebar from '../components/Dashboard/DashSidebar';
+import DashSidebar from './DashSidebar';
 import DashProfile from '../components/Dashboard/DashProfile';
 import DashAdmin from '../components/Dashboard/DashAdmin';
 import DashUsers from '../components/Dashboard/DashUsers';

@@ -1,29 +1,58 @@
-import React, { useState } from 'react';
-// import background from './public/images/Background.jpg'; // Adjust path as needed
-import './Feedback.css'; 
+
+
+// export default Feedback;
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { getToken } from "../service/AuthService"; // Adjust the path according to your project structure
+import "./Feedback.css";
 
 const Feedback = () => {
   const [rating, setRating] = useState(0);
   const [formdata, setFormData] = useState({
-    name: '',
-    email: '',
-    department: '',
-    feedback: '',
-    rating: 0
+    name: "",
+    email: "",
+    department: "",
+    feedback: "",
+    rating: 0,
   });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [id]: value
+      [id]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formdata);
-    // Add form submission logic here
+
+    // Extract token and email from local storage
+    const token = getToken();
+    const email = getEmailFromToken(token);
+
+    try {
+      await axios.post(
+        `http://localhost:8081/api/feedback/${email}`, // Adjust URL as needed
+        {
+          rating: formdata.rating,
+          comment: formdata.feedback,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      navigate("/success"); // Navigate to a success page or handle success
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || "An error occurred";
+      setError(errorMessage);
+    }
   };
 
   const handleStarClick = (index) => {
@@ -31,7 +60,7 @@ const Feedback = () => {
     setRating(newRating);
     setFormData((prev) => ({
       ...prev,
-      rating: newRating
+      rating: newRating,
     }));
   };
 
@@ -40,7 +69,7 @@ const Feedback = () => {
       <svg
         key={index}
         onClick={() => handleStarClick(index)}
-        className={`star-icon ${rating > index ? 'filled' : ''}`}
+        className={`star-icon ${rating > index ? "filled" : ""}`}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -56,80 +85,93 @@ const Feedback = () => {
     ));
   };
 
+  const getEmailFromToken = (token) => {
+    if (!token) return null;
+    try {
+      const base64Payload = token.split(".")[1];
+      const payload = JSON.parse(atob(base64Payload));
+      return payload.sub; // Assuming 'sub' contains the email
+    } catch (error) {
+      return null;
+    }
+  };
+
   return (
-   <div id='feedback-container'>
-    <form onSubmit={handleSubmit} className="form">
-          <h1 className="feedback-title">Feedback Form</h1>
-          
-          <div className="form-group">
-            <label htmlFor="name" className="form-label">Name</label>
-            <input
-              type="text"
-              id="name"
-              value={formdata.name}
-              onChange={handleChange}
-              placeholder="Enter your name"
-              className="form-input"
-            />
-          </div>
+    <div id="feedback-container">
+      <form onSubmit={handleSubmit} className="form">
+        <h1 className="feedback-title">Feedback Form</h1>
 
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={formdata.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              className="form-input"
-            />
-          </div>
+        {/* <div className="form-group">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            value={formdata.name}
+            onChange={handleChange}
+            placeholder="Enter your name"
+            className="form-input"
+          />
+        </div>
 
-          {/* <div className="form-group">
-            <label htmlFor="department" className="form-label">Department</label>
-            <select
-              id="department"
-              name="department"
-              value={formdata.department}
-              onChange={handleChange}
-              className="form-input"
-            >
-              <option value="">Select a department</option>
-              <option value="water-sewer">Water and Sewer Department</option>
-              <option value="road">Road Department</option>
-              <option value="electricity">Electricity Department</option>
-              <option value="waste-management">Waste Management Department</option>
-            </select>
-          </div> */}
+        <div className="form-group">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            value={formdata.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            className="form-input"
+          />
+        </div> */}
 
-          <div className="form-group">
-            <label htmlFor="feedback" className="form-label">Feedback</label>
-            <textarea
-              id="feedback"
-              value={formdata.feedback}
-              onChange={handleChange}
-              placeholder="Enter your feedback here"
-              className="form-textarea"
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Rating</label>
-            <div className="stars">
-              {renderStars()}
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="submit-button"
+        {/* Uncomment and modify if you need department field */}
+        {/* <div className="form-group">
+          <label htmlFor="department" className="form-label">Department</label>
+          <select
+            id="department"
+            name="department"
+            value={formdata.department}
+            onChange={handleChange}
+            className="form-input"
           >
-            Submit
-          </button>
-        </form>
-   </div>
+            <option value="">Select a department</option>
+            <option value="water-sewer">Water and Sewer Department</option>
+            <option value="road">Road Department</option>
+            <option value="electricity">Electricity Department</option>
+            <option value="waste-management">Waste Management Department</option>
+          </select>
+        </div> */}
 
-   
+        <div className="form-group">
+          <label htmlFor="feedback" className="form-label">
+            Feedback
+          </label>
+          <textarea
+            id="feedback"
+            value={formdata.feedback}
+            onChange={handleChange}
+            placeholder="Enter your feedback here"
+            className="form-textarea"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Rating</label>
+          <div className="stars">{renderStars()}</div>
+        </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

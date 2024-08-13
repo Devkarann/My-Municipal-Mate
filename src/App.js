@@ -4,6 +4,7 @@ import Navigationbar from "./components/Navigationbar";
 import FeedComponent from "./components/FeedCard";
 import Footer from "./components/Footer";
 import Complain from "./components/Complain";
+import SuccessPage from "./components/SuccessPage";
 import About from "./components/About";
 import Contactus from "./components/Contactus";
 import SignInPage from "./components/SignInPage"; // Corrected import
@@ -50,11 +51,15 @@ function App() {
           }
         />
         <Route path="/signin" element={<SignIn></SignIn>} />
+        {/* <Route path="/signin" element={<SignIn onLogin={handleLogin} />} /> */}
         <Route path="/register" element={<RegisterComponent />} />
         <Route path="/forgot-password" element={<ForgetPassword />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/dashadmin" element={<Dashboard />} />
-        <Route path="/adminLogin" element={<Admin />} />
+        <Route path="/success" element={<SuccessPage />} />
+        {/* Added SuccessPage route */}
+        <Route path="/adminLogin" element={<Admin onLogin={handleLogin} />} />
+        <Route path="/password-settings" element={<ForgetPassword />} />
       </Routes>
       {/* <Footer /> */}
     </div>

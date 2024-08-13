@@ -15,21 +15,29 @@ const Admin = ({ onLogin }) => {
   const handleLogin = async () => {
     if (usernameOrEmail && password) {
       try {
-        const response = await AuthService.signIn(usernameOrEmail, password);
-        if (response.data && response.data.success) {
-            navigate('/dashadmin');
-            onLogin();
+        const response = await AuthService.adminSignIn(
+          usernameOrEmail,
+          password
+        );
+
+        // Check if the accessToken is present in the response data
+        if (response.data && response.data.accessToken) {
+          // Store the token in local storage
+          localStorage.setItem("authToken", response.data.accessToken);
+
+          // Navigate to the admin dashboard
+          navigate("/dashadmin");
+          onLogin();
         } else {
-            // Handle login failure (e.g., incorrect credentials)
-            setErrorMessage(response.data.message || "Login failed");
+          // Handle login failure (e.g., incorrect credentials)
+          setErrorMessage(response.data.message || "Login failed");
         }
-        console.log(response);
-        onLogin();
       } catch (error) {
         setErrorMessage(error.message || "Login failed");
       }
     }
   };
+
 
   return (
     <div className="sign-in-page-wrapper">

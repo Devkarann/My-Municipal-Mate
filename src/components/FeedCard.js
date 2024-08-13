@@ -49,7 +49,7 @@ const FeedCard = () => {
         <div key={complaint.id} className="feed-item">
           <div className="feed-header">
             <FaUserCircle className="profile-icon" />
-            <strong>{complaint.pname}</strong>
+            <strong>{complaint.username}</strong>
           </div>
           {complaint.imageData && (
             <img
@@ -58,6 +58,7 @@ const FeedCard = () => {
               className="feed-image"
             />
           )}
+
           <p className="feed-status">
             <strong>Status: </strong>
             {complaint.status}
@@ -66,6 +67,10 @@ const FeedCard = () => {
             <strong>Location: </strong>
             {complaint.location}
           </p>
+          {/* apply css here  */}
+          {/* <p>{complaint.complaintDescription}</p> */}
+
+          <p>{complaint.complaintType}</p>
         </div>
       ))}
     </div>
