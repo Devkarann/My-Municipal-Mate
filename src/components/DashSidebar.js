@@ -1,4 +1,4 @@
-// 
+//
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdDynamicFeed, MdFeedback } from "react-icons/md";
@@ -22,15 +22,15 @@ const DashSidebar = () => {
 
   const handleSignOut = () => {
     removeToken(); // Remove the token from local storage
-    navigate("/"); // Redirect to the login page
+    navigate("/admin"); // Redirect to the login page
   };
 
   const navItems = [
     { to: "dashboard", label: "Dashboard", icon: HiHome },
-    { to: "profile", label: "Profile", icon: HiUserCircle },
-    { to: "feedbacks", label: "Feedbacks", icon: MdDynamicFeed },
+    // { to: "profile", label: "Profile", icon: HiUserCircle },
+    // { to: "feedbacks", label: "Feedbacks", icon: MdDynamicFeed },
     { to: "problems", label: "Problems", icon: MdFeedback },
-    { to: "users", label: "Users", icon: HiUsers },
+    { to: "users", label: "Roles", icon: HiUsers },
   ];
 
   return (
