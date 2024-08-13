@@ -13,7 +13,7 @@ export default function Contactus() {
     };
 
     const cards = [
-        { imgSrc: '/images/dev.jpg', name: 'Devkaran Singh', role: 'Frontend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
+        { imgSrc: '/images/chetan.jpg', name: 'Chetan Patil', role: 'Frontend Dev', github: 'https://github.com/chetanpatil06', linkedin: 'https://www.linkedin.com/in/chetan-patil-082938272' },
         { imgSrc: '/images/dev.jpg', name: 'Devkaran Singh', role: 'Frontend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
         { imgSrc: '/images/dev.jpg', name: 'Devkaran Singh', role: 'Frontend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
         { imgSrc: '/images/dev.jpg', name: 'Devkaran Singh', role: 'Frontend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
