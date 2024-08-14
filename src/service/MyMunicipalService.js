@@ -7,10 +7,12 @@ const getAuthToken = () => localStorage.getItem("authToken");
 
 const getAuthHeaders = () => {
   const token = getAuthToken();
-  return {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-  };
+  return token
+    ? {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      }
+    : {};
 };
 
 const MyMunicipalService = {
@@ -30,7 +32,17 @@ const MyMunicipalService = {
   adminSignIn: (usernameOrEmail, password) =>
     axios.post(`${API_URL}/auth/admin/signin`, { usernameOrEmail, password }),
 
-  
+  fetchComplaints: async () => {
+    try {
+      const response = await axios.get(`${API_URL}/admin/complaints`, {
+        headers: getAuthHeaders(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching complaints:", error);
+      throw error;
+    }
+  },
 };
 
 export default MyMunicipalService;

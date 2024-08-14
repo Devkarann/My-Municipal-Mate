@@ -1,76 +1,71 @@
 import React, { useState } from "react";
-import "./DashUser.css"; // Import the CSS file
+import axios from "axios";
+import './DashUser.css';
 
-const DashUsers = () => {
-  // Sample data for users
-  const [users, setUsers] = useState([
-    { id: 1, name: "John Doe", role: "Citizen" },
-    { id: 2, name: "Jane Smith", role: "Admin" },
-    { id: 3, name: "Mike Johnson", role: "Citizen" },
-    { id: 1, name: "John Doe", role: "Citizen" },
-    { id: 2, name: "Jane Smith", role: "Admin" },
-    { id: 3, name: "Mike Johnson", role: "Citizen" },
-    { id: 1, name: "John Doe", role: "Citizen" },
-    { id: 2, name: "Jane Smith", role: "Admin" },
-    { id: 3, name: "Mike Johnson", role: "Citizen" },
-  ]);
+// Function to get auth token from local storage
+const getAuthToken = () => localStorage.getItem("authToken");
 
-  // Handler for updating user role
-  const handleRoleChange = (id, newRole) => {
-    const updatedUsers = users.map((user) =>
-      user.id === id ? { ...user, role: newRole } : user
-    );
-    setUsers(updatedUsers);
+const AssignRoleForm = () => {
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8081/api/admin/assign-role",
+        {
+          email,
+          roleName: role,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${getAuthToken()}`,
+          },
+        }
+      );
+      setMessage(response.data.message || "Role assigned successfully");
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Failed to assign role");
+    }
   };
 
   return (
-    <div className="dash-users-container">
-      <div id="roleManagement">
-        <h2 className="text-center">Role Management</h2>
-        <div className="card">
-          <div className="card-header text-center">
-            <i className="fas fa-users-cog"></i> Roles
-          </div>
-          <div className="card-body">
-            <table className="table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>User</th>
-                  <th>Current Role</th>
-                  <th>Assign Role</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="rolesTable">
-                {users.map((user, index) => (
-                  <tr key={user.id}>
-                    <td>{index + 1}</td>
-                    <td>{user.name}</td>
-                    <td>{user.role}</td>
-                    <td>
-                      <select
-                        value={user.role}
-                        onChange={(e) =>
-                          handleRoleChange(user.id, e.target.value)
-                        }
-                      >
-                        <option value="Admin">Admin</option>
-                        <option value="Citizen">Citizen</option>
-                      </select>
-                    </td>
-                    <td>
-                      <button className="btn-update">Update</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+    <div className="assign-role-form">
+      <h2>Assign Role to Citizen</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-      </div>
+        <div className="form-group">
+          <label htmlFor="role">Role:</label>
+          <select
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            required
+          >
+            <option value="" disabled>
+              Select a role
+            </option>
+            <option value="ROLE_ADMIN">Admin</option>
+            <option value="ROLE_CITIZEN">Citizen</option>
+          </select>
+        </div>
+        <button type="submit">Assign Role</button>
+      </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };
 
-export default DashUsers;
+export default AssignRoleForm;

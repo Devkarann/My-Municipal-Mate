@@ -15,9 +15,9 @@ const SignInPage = ({ onLogin }) => {
       try {
         const response = await AuthService.signIn(usernameOrEmail, password);
         const token = response.data.accessToken;
-        setToken(token); // Store token
-        onLogin(); // Pass username to parent
-        navigate("/complain"); // Redirect to home or dashboard
+        setToken(token);
+        onLogin(); 
+        navigate("/complain"); 
       } catch (error) {
         setErrorMessage(error.message || "Login failed");
       }

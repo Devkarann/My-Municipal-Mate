@@ -1,10 +1,7 @@
-
-
-// export default Feedback;
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getToken } from "../service/AuthService"; // Adjust the path according to your project structure
+import { getToken } from "../service/AuthService"; 
 import "./Feedback.css";
 
 const Feedback = () => {
@@ -36,7 +33,7 @@ const Feedback = () => {
 
     try {
       await axios.post(
-        `http://localhost:8081/api/feedback/${email}`, // Adjust URL as needed
+        `http://localhost:8081/api/feedback/${email}`, 
         {
           rating: formdata.rating,
           comment: formdata.feedback,
@@ -48,7 +45,7 @@ const Feedback = () => {
           },
         }
       );
-      navigate("/success"); // Navigate to a success page or handle success
+      navigate("/success"); 
     } catch (err) {
       const errorMessage = err.response?.data?.message || "An error occurred";
       setError(errorMessage);
@@ -90,7 +87,7 @@ const Feedback = () => {
     try {
       const base64Payload = token.split(".")[1];
       const payload = JSON.parse(atob(base64Payload));
-      return payload.sub; // Assuming 'sub' contains the email
+      return payload.sub; 
     } catch (error) {
       return null;
     }
@@ -101,51 +98,7 @@ const Feedback = () => {
       <form onSubmit={handleSubmit} className="form">
         <h1 className="feedback-title">Feedback Form</h1>
 
-        {/* <div className="form-group">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={formdata.name}
-            onChange={handleChange}
-            placeholder="Enter your name"
-            className="form-input"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={formdata.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className="form-input"
-          />
-        </div> */}
-
-        {/* Uncomment and modify if you need department field */}
-        {/* <div className="form-group">
-          <label htmlFor="department" className="form-label">Department</label>
-          <select
-            id="department"
-            name="department"
-            value={formdata.department}
-            onChange={handleChange}
-            className="form-input"
-          >
-            <option value="">Select a department</option>
-            <option value="water-sewer">Water and Sewer Department</option>
-            <option value="road">Road Department</option>
-            <option value="electricity">Electricity Department</option>
-            <option value="waste-management">Waste Management Department</option>
-          </select>
-        </div> */}
+        
 
         <div className="form-group">
           <label htmlFor="feedback" className="form-label">

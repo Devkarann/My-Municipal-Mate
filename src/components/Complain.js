@@ -29,7 +29,7 @@ const Complain = () => {
       formData.append("file", file);
     }
 
-    // Add complaint data as JSON string to formData
+    
     const complaintData = JSON.stringify({
       complaintDescription,
       location,
@@ -40,7 +40,7 @@ const Complain = () => {
     );
 
     try {
-      // Submit complaint data with file in one request
+      
       await axios.post(
         `http://localhost:8081/api/complaints/${complaintType}/${email}`,
         formData,
@@ -52,9 +52,9 @@ const Complain = () => {
         }
       );
 
-      navigate("/success"); // Navigate to a success page or handle success
+      navigate("/success"); 
     } catch (err) {
-      // Check if error response is defined
+     
       const errorMessage = err.response?.data?.message || "An error occurred";
       setError(errorMessage);
     }
@@ -65,7 +65,7 @@ const Complain = () => {
     try {
       const base64Payload = token.split(".")[1];
       const payload = JSON.parse(atob(base64Payload));
-      return payload.sub; // Assuming 'sub' contains the email
+      return payload.sub; 
     } catch (error) {
       return null;
     }

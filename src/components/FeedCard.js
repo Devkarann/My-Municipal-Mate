@@ -19,14 +19,14 @@ const FeedCard = () => {
             },
           }
         );
-        // Sort complaints by date in descending order
+        
         const sortedComplaints = response.data.sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
         setComplaints(sortedComplaints);
       } catch (error) {
         console.error("Error fetching complaints:", error);
-        // Optionally, handle errors or show a user-friendly message
+       
       }
     };
 
