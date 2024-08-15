@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../components/About.css';
+import logo from '../assets/images/logo.png';
+
 
 // Define the image URLs for the scrolling images
 const images = [
@@ -110,6 +112,9 @@ export default function About() {
                     <p>{t('aboutUs.p2')}</p>
                     <p>{t('aboutUs.p3')}</p>
                     <p>{t('aboutUs.p4')}</p>
+                    <div>
+                        <img src= {logo} style={{height:'200px',width:'300px', marginTop:'70px'}}></img>
+                    </div>
 
             </div>
 
