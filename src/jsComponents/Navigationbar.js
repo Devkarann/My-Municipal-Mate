@@ -26,8 +26,8 @@ const Navigationbar = ({ onLogout }) => {
   const handleSignOut = () => {
     removeToken(); // Clear token
     setUsername(null);
-    onLogout(); // Notify parent component about logout
-    navigate("/"); // Redirect to home or login page
+    onLogout(); 
+    navigate("/"); 
   };
 
   const changelanguage = (lng) => {

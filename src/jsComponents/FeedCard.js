@@ -67,7 +67,7 @@ const FeedCard = () => {
             <strong>Location: </strong>
             {complaint.location}
           </p>
-          {/* apply css here  */}
+          
           {/* <p>{complaint.complaintDescription}</p> */}
 
           <p>{complaint.complaintType}</p>
