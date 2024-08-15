@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getToken } from "../service/AuthService";
-import "./Complain.css";
+import "../components/Complain.css";
 
 const Complain = () => {
   const [complaintDescription, setComplaintDescription] = useState("");

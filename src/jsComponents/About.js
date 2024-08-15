@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import './About.css';
+import '../components/About.css';
 
 // Define the image URLs for the scrolling images
 const images = [

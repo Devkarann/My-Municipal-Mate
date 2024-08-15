@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { setToken } from "../service/AuthService";
 import AuthService from "../service/MyMunicipalService";
-import "./SignPage.css";
+import "../components/SignPage.css";
 
 const SignInPage = ({ onLogin }) => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");

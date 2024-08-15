@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getToken } from "../service/AuthService";
 import { FaUserCircle } from "react-icons/fa";
-import "./FeedCard.css";
+import "../components/FeedCard.css";
 
 const FeedCard = () => {
   const [complaints, setComplaints] = useState([]);

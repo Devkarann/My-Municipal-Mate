@@ -4,7 +4,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { SlLock } from "react-icons/sl";
 import MyMunicipalService from "../service/MyMunicipalService";
-import "./ForgetPassword.css";
+import "../components/ForgetPassword.css";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();

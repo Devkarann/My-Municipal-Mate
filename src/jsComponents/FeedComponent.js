@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Feeds from "./Feeds";
-import "./FeedComponent.css";
+import "../components/FeedComponent.css";
 
 export default function HomeComponent() {
   const [feedarr, setFeedarr] = useState([]);

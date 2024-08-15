@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Navigation.css";
+import "../components/Navigation.css";
 import { getToken, getUsername, removeToken } from "../service/AuthService";
 import logo from '../assets/images/logo.png'
 
@@ -38,7 +38,7 @@ const Navigationbar = ({ onLogout }) => {
     <>
       <div id="outer-nav">
         <div id="nav">
-          <div id="nav-left"><img src={logo} style={{height:'110px', width:'210px', marginTop:'10px'}}/></div>
+          <div id="nav-left"><img src={logo} alt="Error" style={{height:'110px', width:'210px', marginTop:'10px'} }/></div>
           <div id="nav-center">
             <ul id="nav-center-ul">
               <li>

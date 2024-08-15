@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaGoogle, FaFacebook } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../service/MyMunicipalService";
-import "./SignPage.css";
+import "../components/SignPage.css";
 
 const Admin = ({ onLogin }) => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");

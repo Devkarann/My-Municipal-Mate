@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyMunicipalMateService from "../service/MyMunicipalService";
-import "./RegisterComponent.css";
+import "../components/RegisterComponent.css";
 
 function RegisterComponent() {
   const [user, setUser] = useState({
