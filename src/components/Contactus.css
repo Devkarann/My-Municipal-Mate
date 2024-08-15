@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
-    position: relative; /* Ensure positioning for blur effect */
+    position: relative;
 }
 
 .card {
@@ -28,31 +28,31 @@
     color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8); /* Default shadow */
-    width: 200px; /* Increased width */
-    height: 325px; /* Increased height */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8); 
+    width: 200px; 
+    height: 325px; 
     padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Roboto', sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Added transition for filter */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
 }
 
 .card:hover {
-    transform: scale(1.3); /* Scale up card on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    transform: scale(1.3); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); 
 }
 
 .card.blurred {
-    filter: blur(4px); /* Apply blur to non-hovered cards */
-    pointer-events: none; /* Prevent interaction with blurred cards */
+    filter: blur(4px); 
+    pointer-events: none; 
 }
 
 .avatar {
-    width: 200px; /* Increased size */
-    height: 200px; /* Increased size */
+    width: 200px; 
+    height: 200px; 
     border-radius: 60%;
     object-fit: cover;
     margin-bottom: 10px;
@@ -61,7 +61,7 @@
 .icons {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Increased gap */
+    gap: 15px; 
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -69,13 +69,13 @@
 
 .icon {
     display: flex;
-    gap: 15px; /* Increased gap between icons */
+    gap: 15px; 
     align-items: center;
     justify-content: center;
 }
 
 .icon i {
-    font-size: 25px; /* Increased icon size */
+    font-size: 25px; 
     color: white;
 }
 

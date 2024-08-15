@@ -1,35 +1,28 @@
-/* Scoped styles for the Complain component */
+
 .add-complaint-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(15, 89, 89);
-    /* Background color matching the general style */
+   
     padding: 20px;
     border-radius: 10px;
-    /* Rounded corners */
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Softer shadow */
     max-width: 500px;
-    /* Reduced width */
     width: 100%;
     box-sizing: border-box;
-    /* Include padding and border in the element's total width and height */
     margin: 20px auto;
-    /* Center horizontally with margin */
     position: absolute;
     top: 20%;
-    /* Shift content closer to the top */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .add-complaint-container h2 {
     margin-bottom: 15px;
-    /* Consistent spacing */
     font-size: 1.5rem;
     color: white;
-    /* Title color */
     text-align: center;
 }
 
@@ -41,7 +34,6 @@
     display: block;
     margin-bottom: 5px;
     color: white;
-    /* Label color */
 }
 
 .add-complaint-container .form-group input,
@@ -49,35 +41,29 @@
 .add-complaint-container .form-group select {
     width: 100%;
     padding: 10px;
-    /* Consistent padding */
     border: 2px solid #ddd;
-    /* Border color similar to inputs in the sign-in page */
     border-radius: 8px;
-    /* Rounded corners */
     font-size: 1rem;
     box-sizing: border-box;
-    /* Include padding and border in the element's total width and height */
 }
 
 .add-complaint-container .form-group input[type="file"] {
     padding: 5px;
-    /* Slightly less padding for file input */
+   
 }
 
 .add-complaint-container .form-group input:focus,
 .add-complaint-container .form-group textarea:focus,
 .add-complaint-container .form-group select:focus {
     border-color: #0f5c5c;
-    /* Focus border color */
     outline: none;
 }
 
 .add-complaint-container .error-message {
     color: #d9534f;
-    /* Error message color */
+    
     font-size: 0.875rem;
     margin-bottom: 15px;
-    /* Consistent spacing */
     text-align: center;
 }
 
@@ -85,24 +71,17 @@
     width: 100%;
     padding: 10px;
     border: 2px solid white;
-    /* Border color */
     border-radius: 8px;
-    /* Rounded corners */
     background-color: white;
-    /* Background color */
     color: black;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s;
-    /* Smooth transition for background color and shadow */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    /* Softer shadow for button */
 }
 
 .add-complaint-container button:hover {
     background-color: #0f5c5c;
-    /* Darker shade for hover effect */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
-    /* Darker shadow on hover */
     color: white;
 }

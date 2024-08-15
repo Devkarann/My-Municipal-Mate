@@ -1,5 +1,3 @@
-/* Styles for the FeedbackComponent */
-
 
 #feedback-container{
   display: flex;
@@ -7,11 +5,11 @@
   background-color: whitesmoke;
 }
 .feedback-title {
-  font-size: 18px; /* Reduced font size for the title */
+  font-size: 18px; 
   font-weight: 600;
-  color: white; /* Blue color for the title */
+  color: white; 
   text-align: center;
-  margin-bottom: 12px; /* Reduced margin for a tighter look */
+  margin-bottom: 12px; 
   font-family: 'Roboto', sans-serif;
 }
 
@@ -22,29 +20,29 @@
 }
 
 .form-group {
-  margin-bottom: 10px; /* Further reduced margin for more compact spacing */
+  margin-bottom: 10px; 
 }
 
 .form-label {
   display: block;
-  color: white; /* Blue color for form labels */
+  color: white; 
   font-weight: 500;
-  margin-bottom: 4px; /* Further reduced margin for form labels */
+  margin-bottom: 4px; 
   font-family: 'Roboto', sans-serif;
 }
 
 .form-input, .form-textarea, .form-select {
   width: 100%;
-  padding: 4px; /* Reduced padding for more compact input fields */
+  padding: 4px; 
   border-radius: 4px;
-  border: 2px solid #ced4da; /* Light gray border for inputs */
+  border: 2px solid #ced4da; 
   background-color: white;
   color: black;
   box-sizing: border-box;
 }
 
 .form-textarea {
-  height: 100px; /* Further reduced height for textarea */
+  height: 100px; 
   resize: none;
 }
 
@@ -52,22 +50,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px; /* Further reduced padding for a more compact button */
-  border: 2px solid #007BFF; /* Blue border color for the button */
+  padding: 8px; 
+  border: 2px solid #007BFF; 
   border-radius: 4px;
-  background-color: white; /* White background for the button */
-  color: #007BFF; /* Blue text color for the button */
+  background-color: white; 
+  color: #007BFF; 
   font-weight: 500;
   width: 100%;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transition for colors */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Default shadow for button */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .submit-button:hover {
-  background-color: #28a745; /* Green background color on hover */
-  color: white; /* White text color on hover */
-  border-color: #28a745; /* Green border color on hover */
+  background-color: #28a745; 
+  color: white; 
+  border-color: #28a745; 
 }
 
 .stars {
@@ -76,15 +74,15 @@
 }
 
 .star-icon {
-  width: 18px; /* Reduced size for star icons */
+  width: 18px; 
   height: 18px;
   cursor: pointer;
 }
 
 .star-icon.filled {
-  color: #facc15; /* Yellow color for filled stars */
+  color: #facc15; 
 }
 
 .star-icon:not(.filled) {
-  color: #ced4da; /* Light gray color for unfilled stars */
+  color: #ced4da; 
 }
