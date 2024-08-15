@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contactus.css';
+import '../components/Contactus.css';
 
 export default function Contactus() {
     const [hoveredCard, setHoveredCard] = useState(null);

@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdDynamicFeed, MdFeedback } from "react-icons/md";
 import { HiUsers, HiHome, HiUserCircle } from "react-icons/hi2";
 import { FiLogOut } from "react-icons/fi";
-import "./DashSidebar.css";
+import "../components/DashSidebar.css";
 import { removeToken } from "../service/AuthService";
 
 const DashSidebar = () => {

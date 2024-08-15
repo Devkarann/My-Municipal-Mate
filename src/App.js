@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { Routes, Route,Navigate } from "react-router-dom";
-import Navigationbar from "./components/Navigationbar";
-import FeedComponent from "./components/FeedCard";
-import Footer from "./components/Footer";
-import Complain from "./components/Complain";
-import SuccessPage from "./components/SuccessPage";
-import About from "./components/About";
-import Contactus from "./components/Contactus";
-import SignInPage from "./components/SignInPage"; 
-import RegisterComponent from "./components/RegisterComponent";
-import ForgetPassword from "./components/ForgetPassword";
-import Feedback from "./components/Feedback";
-import Dashboard from "./components/Dashboard";
-import Admin from "./components/Admin";
+import Navigationbar from "./jsComponents/Navigationbar";
+import FeedComponent from "./jsComponents/FeedCard";
+// import Footer from "./jsComponents/Footer";
+import Complain from "./jsComponents/Complain";
+import SuccessPage from "./jsComponents/SuccessPage";
+import About from "./jsComponents/About";
+import Contactus from "./jsComponents/Contactus";
+import SignInPage from "./jsComponents/SignInPage"; 
+import RegisterComponent from "./jsComponents/RegisterComponent";
+import ForgetPassword from "./jsComponents/ForgetPassword";
+import Feedback from "./jsComponents/Feedback";
+import Dashboard from "./jsComponents/Dashboard";
+import Admin from "./jsComponents/Admin";
 import { getToken } from "./service/AuthService";
-import SignIn from "./components/SignInPage";
+import SignIn from "./jsComponents/SignInPage";
 import "./i18n";
 
 function App() {
@@ -49,13 +49,12 @@ function App() {
               <SignInPage onLogin={handleLogin} />
             )
           }
+        
         />
         <Route path="/signin" element={<SignIn></SignIn>} />
-        {/* <Route path="/signin" element={<SignIn onLogin={handleLogin} />} /> */}
         <Route path="/register" element={<RegisterComponent />} />
         <Route path="/forgot-password" element={<ForgetPassword />} />
         <Route path="/feedback" element={<Feedback />} />
-        {/* <Route path="/dashadmin" element={<Dashboard />} /> */}
         <Route
           path="/dashadmin"
           element={
@@ -63,7 +62,6 @@ function App() {
           }
         />
         <Route path="/success" element={<SuccessPage />} />
-        {/* Added SuccessPage route */}
         <Route path="/adminLogin" element={<Admin onLogin={handleLogin} />} />
         <Route path="/password-settings" element={<ForgetPassword />} />
       </Routes>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import './About.css';
+import '../components/About.css';
+import logo from '../assets/images/logo.png';
 
 // Define the image URLs for the scrolling images
 const images = [
@@ -88,20 +89,6 @@ export default function About() {
                 </div>
             </div>
 
-            {/* <div className="about-part">
-                <h1>Welcome to</h1>
-                <h2>My Municipal Mate</h2>
-                <p>
-                    Nagpur Municipal Corporation was initially governed by the City of Nagpur Corporation Act (CNC Act) 1948, till the implementation of Maharashtra Municipal Corporation Act. The CNC Act was repealed in 2012 vide Maharashtra Notification No. 23 Dated 21 August 2012 and thereafter the working of Nagpur Municipal Corporation is governed by Maharashtra Municipal Corporation Act.
-                </p>
-                <p>
-                    The key responsibility for providing basic urban services to the citizens of Nagpur lies with the Nagpur Municipal Corporation. These services include water supply, sewerage, waste management, slum improvement, land use planning, construction and maintenance of roads, street lighting, maintenance of parks and gardens, providing primary health and education facilities, etc.
-                </p>
-                <p>
-                    The Municipal Commissioner is the administrative head of the Municipal Corporation who is assisted by Additional Municipal Commissioner, Deputy Municipal Commissioner, Asst. Municipal Commissioner, and various departmental Heads. NMC coordinates with various other government organizations like NIT, MHADA, MSRTC, the Traffic Police, MPCB, etc., for delivering these basic urban services.
-                </p>
-            </div> */}
-
             <div className="about-part">
                 <h1>{t('welcome')}</h1>
                 <h2>{t('title')}</h2>
@@ -110,6 +97,9 @@ export default function About() {
                     <p>{t('aboutUs.p2')}</p>
                     <p>{t('aboutUs.p3')}</p>
                     <p>{t('aboutUs.p4')}</p>
+                    <div>
+                        <img src={logo} alt='not-found' style={{height: '250px'}}></img>
+                    </div>
 
             </div>
 
