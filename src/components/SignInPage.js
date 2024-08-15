@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { setToken } from "../service/AuthService";
+import { jwtDecode } from "jwt-decode";
 import AuthService from "../service/MyMunicipalService";
 import "./SignPage.css";
 
@@ -25,6 +26,34 @@ const SignInPage = ({ onLogin }) => {
       setErrorMessage("Please enter your username/email and password.");
     }
   };
+
+
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:8081/oauth2/authorization/google";
+  };
+
+  // Function to extract token from cookies and set it to localStorage
+  const handleGoogleRedirect = () => {
+    const cookieToken = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("jwtToken="))
+      ?.split("=")[1];
+
+    if (cookieToken) {
+      setToken(cookieToken);
+      onLogin();
+      navigate("/complain");
+    } else {
+     // setErrorMessage("Google login failed. Token not found.");
+    }
+  };
+
+  // Automatically handle redirect after Google login
+  React.useEffect(() => {
+    if (window.location.pathname === "/complain") {
+      handleGoogleRedirect();
+    }
+  }, []);
 
   return (
     <div className="sign-in-page-wrapper">
@@ -53,7 +82,8 @@ const SignInPage = ({ onLogin }) => {
             <div className="oauth-buttons">
               <button
                 className="oauth-button google"
-                disabled
+                // disabled
+                onClick={handleGoogleLogin}
                 style={{ cursor: "default" }}
               >
                 <FaGoogle className="icon" /> Google
