@@ -81,8 +81,8 @@
 
 .star-icon.filled {
   color: #facc15; 
-}
-
+}  
+  
 .star-icon:not(.filled) {
-  color: #ced4da; 
+  color: #ced4da;   
 }

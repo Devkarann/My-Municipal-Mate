@@ -115,7 +115,7 @@
 
 .sign-in-page-container .oauth-button.google:hover {
   background-color: #c1351d;
-}
+}  
 
 .sign-in-page-container .oauth-button.facebook {
   background-color: #4267b2;
@@ -124,3 +124,4 @@
 .sign-in-page-container .oauth-button.facebook:hover {
   background-color: #365899;
 }
+      

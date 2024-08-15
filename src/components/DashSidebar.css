@@ -14,9 +14,9 @@
     border-radius: 0.5rem; 
     background-color: #F3F4F6;
     box-shadow: 0 4px 6px rgba(253, 186, 116, 0.3); 
-}
+}  
 
-
+  
 .nav-item {
     display: flex;
     align-items: center;

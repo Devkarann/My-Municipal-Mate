@@ -26,14 +26,14 @@ const BoxesImages = [
 ];
 
 const BoxesLinks = [
-    { links: 'https://firebrigade.example.com', para: 'Fire Brigade' },
-    { links: 'https://police.example.com', para: 'Police' },
-    { links: 'https://hospital.example.com', para: 'Hospital' },
-    { links: 'https://library.example.com', para: 'Library' },
-    { links: 'https://municipal.example.com', para: 'Electricity' },
-    { links: 'https://school.example.com', para: 'School' },
-    { links: 'https://park.example.com', para: 'Park' },
-    { links: 'https://transit.example.com', para: 'Transit' }
+    { links: 'https://www.pmc.gov.in/en/fire', para: 'Fire Brigade' },
+    { links: 'https://punepolice.gov.in/', para: 'Police' },
+    { links: 'https://www.pmc.gov.in/en/hosp-list', para: 'Hospital' },
+    { links: 'https://www.puneonline.in/guide/libraries-in-pune', para: 'Library' },
+    { links: 'https://www.pmc.gov.in/en/electrical', para: 'Electricity' },
+    { links: 'https://www.pmc.gov.in/en/school-and-learning-centers', para: 'School' },
+    { links: 'https://www.pmc.gov.in/en/garden', para: 'Park' },
+    { links: 'https://www.pmc.gov.in/en/local-transportation-0', para: 'Transit' }
 ];
 
 export default function About() {
