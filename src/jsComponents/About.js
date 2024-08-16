@@ -6,10 +6,10 @@ import logo from '../assets/images/logo.png';
 
 // Define the image URLs for the scrolling images
 const images = [
-    '/images/one.jpg',
-    '/images/twoo.jpg',
-    '/images/three.jpg',
-    // Add more image paths here
+    '/images/dustbin.jpg',
+    '/images/construction.jpeg',
+    '/images/streetlamp.jpeg',
+    // '/images/west.jpg'
 ];
 const truckImage = '/images/tru.png'; // Direct path to the truck image
 

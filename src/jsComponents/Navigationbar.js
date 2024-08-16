@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../components/Navigation.css";
 import { getToken, getUsername, removeToken } from "../service/AuthService";
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
 
 const Navigationbar = ({ onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState(null);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -23,6 +24,10 @@ const Navigationbar = ({ onLogout }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleSignOut = () => {
     removeToken(); // Clear token
     setUsername(null);
@@ -30,46 +35,38 @@ const Navigationbar = ({ onLogout }) => {
     navigate("/"); 
   };
 
-  const changelanguage = (lng) => {
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setIsOpen(false);
   };
 
   return (
     <>
       <div id="outer-nav">
         <div id="nav">
-          <div id="nav-left"><img src={logo} alt="Error" style={{height:'110px', width:'210px', marginTop:'10px'} }/></div>
+          <div id="nav-left">
+            <img src={logo} alt="Error" style={{height:'110px', width:'210px', marginTop:'10px'}} />
+          </div>
           <div id="nav-center">
             <ul id="nav-center-ul">
-              <li>
-                {/* {<Link to="/">Home</Link>} */}
-                <Link to="/">{t('home')}</Link>
-              </li>
-              <li>
-                {/* {<Link to="/ContactUs">Contact Us</Link>} */}
-                <Link to="/ContactUs">{t('contactUs')}</Link>
-              </li>
-              <li>
-                {/* <Link to="/feed">Feeds</Link> */}
-                <Link to="/feed">{t('feeds')}</Link>
-              </li>
+              <li><Link to="/">{t('home')}</Link></li>
+              <li><Link to="/ContactUs">{t('contactUs')}</Link></li>
+              <li><Link to="/feed">{t('feeds')}</Link></li>
               <button id="button">
-                {/* <Link to="/complain" id="button-link">
-                  Complain
-                </Link> */}
-                <Link to="/complain" id="button-link">
-                {t('complain')}
-                </Link>
+                <Link to="/complain" id="button-link">{t('complain')}</Link>
               </button>
-              <button id="button2" onClick={() => changelanguage("en")}>
-                En
-              </button>
-              <button id="button3" onClick={() => changelanguage("hi")}>
-                हि
-              </button>
-              <button id="button3" onClick={() => changelanguage("mr")}>
-                मर
-              </button>
+
+              <div className={`dropdown ${isOpen ? "show" : ""}`}>
+                <button className="dropbtn" onClick={toggleDropdown}>
+                  {/* 🌍 World icon */}
+                  <i className="fas fa-globe"></i>
+                </button>
+                <div className="dropdown-content">
+                  <button onClick={() => changeLanguage('en')}>En</button>
+                  <button onClick={() => changeLanguage('hi')}>हि</button>
+                  <button onClick={() => changeLanguage('mr')}>मर</button>
+                </div>
+              </div>
               
             </ul>
           </div>
@@ -79,38 +76,14 @@ const Navigationbar = ({ onLogout }) => {
         </div>
       </div>
 
-      {/* Sidebar Menu */}
       <div id="side-menu" className={`side-menu ${isMenuOpen ? "show" : ""}`}>
-        <button className="close-btn" onClick={toggleMenu}>
-          x
-        </button>
+        <button className="close-btn" onClick={toggleMenu}>x</button>
         <ul>
-          {/* {username && <li>Welcome, {username}</li>} */}
           {username && <li>{t('welcome')}, {username}</li>}
-          {/* <li><Link to="/dashadmin">Dashboard</Link></li> */}
-          <li>
-            {/* <Link to="/feedback">Feedback</Link> */}
-            {/* <Link to="/feedback">Feedback</Link> */}
-            <Link to="/feedback">{t('feedback')}</Link>
-          </li>
-          <li>
-            {/* <Link to="/adminLogin">Admin Login</Link> */}
-            <Link to="/adminLogin">{t('adminLogin')}</Link>
-          </li>
-          <li>
-            {/* <Link to="/password-settings">Password Settings</Link> */}
-            {/* <Link to="/password-settings">Password Settings</Link> */}
-            <Link to="/password-settings">{t('passwordSettings')}</Link>
-          </li>
-          {/* <li>
-            <Link to="/signout">Sign Out</Link>
-          </li> */}
-
-          <li>
-            {/* <button onClick={handleSignOut}>Sign Out</button> */}
-            {/* <button onClick={handleSignOut}>Sign Out</button> */}
-            <button onClick={handleSignOut}>{t('signOut')}</button>
-          </li>
+          <li><Link to="/feedback">{t('feedback')}</Link></li>
+          <li><Link to="/adminLogin">{t('adminLogin')}</Link></li>
+          <li><Link to="/password-settings">{t('passwordSettings')}</Link></li>
+          <li><button onClick={handleSignOut}>{t('signOut')}</button></li>
         </ul>
       </div>
     </>
