@@ -113,7 +113,7 @@ export default function About() {
                     <p>{t('aboutUs.p3')}</p>
                     <p>{t('aboutUs.p4')}</p>
                     <div>
-                        <img src= {logo} style={{height:'200px',width:'300px', marginTop:'70px'}}></img>
+                        <img src= {logo} style={{height:'200px',width:'300px', marginTop:'70px'} } alt='error'></img>
                     </div>
 
             </div>
