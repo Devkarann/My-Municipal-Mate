@@ -7,6 +7,7 @@
     "feedback": "प्रतिक्रिया",
     "passwordSettings": "पासवर्ड सेटिंग्स",
     "signOut": "साइन आउट",
+     "adminLogin": "प्रशासक लॉगिन",
     "taglineOne": "My Municipal Mate",
     "taglineTwo": "समुदायों को आसानी से जोड़ना – My Municipal Mate नगरपालिका सेवाओं को डिजिटल युग में लाता है।",
     "welcome": "स्वागत है",
@@ -23,7 +24,8 @@
     "heading": "संपर्क करें",
     "address": "ACTS-CDAC, पंचवटी, पाषाण- पुणे",
     "email": "ईमेल: mymunicipalmate.com",
-    "phone": "फ़ोन: +123 456 7890"
+    "phone": "फ़ोन: +123 456 7890",
+    "feedback": "किसी भी साइट फीडबैक और अन्य समीक्षाओं के लिए, हमारे सोशल मीडिया हैंडल का उपयोग करें या हमें ईमेल करें। हम आपसे सुनना पसंद करेंगे!!!"
   },
   "footer": {
     "copyright": "&copy; 2024 My Municipal Mate सभी अधिकार सुरक्षित।"

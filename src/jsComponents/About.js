@@ -104,7 +104,8 @@ export default function About() {
             </div>
 
             <div className="link-boxes">
-                <div className="box-heading">Quick Links</div>
+                {/* <div className="box-heading">Quick Links</div> */}
+                <div className="box-heading">{t('quickLinks')}</div>
                 <div className="boxes-container">
                     {BoxesImages.map((src, index) => (
                         <div
@@ -137,23 +138,33 @@ export default function About() {
   <hr className="divider" />
 
   <div className="contact-section">
-    <p>For any site feedback and other review, use our social media handles or email us. We would like to hear from you!!!</p>
+    {/* <p>For any site feedback and other review, use our social media handles or email us. We would like to hear from you!!!</p> */}
+    <p>{t('contact.feedback')}</p>
+    
   </div>
 
   <hr className="divider" />
 
   <div className="contact-section">
-    <h2>Contact Us</h2>
-    <address>
+    {/* <h2>Contact Us</h2> */}
+    {/* <address>
       <p>ACTS-CDAC, Panchavati, Pashan- Pune</p>
       <p>Email: <a href="mymunicipalmate.com">mymunicipalmate.com</a></p>
       <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+    </address> */}
+    <h2>{t('contact.heading')}</h2>
+    <address>
+    <p>{t('contact.address')}</p>
+    <p>{t('contact.email')}</p>
+    <p>{t('contact.phone')}</p>
     </address>
+    
   </div>
 </div>
 
 <div className="footer-container">
-  <p>&copy; 2024 My Municipal Mate. All rights reserved.</p>
+  {/* <p>&copy; 2024 My Municipal Mate. All rights reserved.</p> */}
+  <p>{t('footer.copyright')}</p>
 </div>
 
  
