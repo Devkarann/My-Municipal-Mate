@@ -73,15 +73,33 @@ body {
 }
 
 .feed-status,
-.feed-location {
+.feed-location,
+.feed-com {
     margin: 5px 0;
     font-size: 18px;
 }
-  
-.feed-status {  
+
+.feed-status {
     color: yellow;
 }
 
 .feed-location {
-    color: lightgray;
+    color: white;
+}
+
+.feed-com {
+    color: white;
+}
+
+
+.description {
+    padding: 20px;
+    color: white;
+    text-align: left;
+}
+
+
+.description p {
+    margin-bottom: 10px;
+    text-align: left;
 }

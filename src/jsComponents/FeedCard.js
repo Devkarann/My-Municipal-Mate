@@ -19,14 +19,13 @@ const FeedCard = () => {
             },
           }
         );
-        
+
         const sortedComplaints = response.data.sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
         setComplaints(sortedComplaints);
       } catch (error) {
         console.error("Error fetching complaints:", error);
-       
       }
     };
 
@@ -59,18 +58,20 @@ const FeedCard = () => {
             />
           )}
 
-          <p className="feed-status">
-            <strong>Status: </strong>
-            {complaint.status}
-          </p>
-          <p className="feed-location">
-            <strong>Location: </strong>
-            {complaint.location}
-          </p>
-          
-          {/* <p>{complaint.complaintDescription}</p> */}
-
-          <p>{complaint.complaintType}</p>
+          <div className="description">
+            <p className="feed-status">
+              <strong>Status: </strong>
+              {complaint.status}
+            </p>
+            <p className="feed-location">
+              <strong>Location: </strong>
+              {complaint.location}
+            </p>
+            <p className="feed-com">
+              <strong>Complain-Type: </strong>
+              {complaint.complaintType}
+            </p>
+          </div>
         </div>
       ))}
     </div>

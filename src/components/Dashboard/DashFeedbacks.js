@@ -1,6 +1,6 @@
-
 import React, { useState } from "react";
 import axios from "axios";
+import "./DashFeedback.css"; // Assuming the CSS is in the same directory
 
 // Function to get auth token from local storage
 const getAuthToken = () => localStorage.getItem("authToken");
@@ -43,25 +43,18 @@ const AdminComplaintForm = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div className="admin-complaint-form">
       <h2>Admin: Update Complaint Status</h2>
       <input
         type="text"
         placeholder="Enter Complaint ID"
         value={complaintID}
         onChange={(e) => setComplaintID(e.target.value)}
-        style={{ padding: "10px", width: "300px", marginBottom: "20px" }}
       />
       <br />
-      <button
-        onClick={handleResolved}
-        style={{ marginRight: "10px", padding: "10px 20px" }}
-      >
-        Mark as Resolved
-      </button>
-      <button onClick={handleOpen} style={{ padding: "10px 20px" }}>
-        Mark as Open
-      </button>
+      <button onClick={handleResolved}>Mark as Resolved</button>
+      <br />
+      <button onClick={handleOpen}>Mark as Open</button>
     </div>
   );
 };
