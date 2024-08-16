@@ -1,7 +1,6 @@
-/* Styles for the RegisterComponent */
 #bg {
-    background-color: whitesmoke; /* Light gray background for the entire page */
-    min-height: 60vh; /* Ensure it covers the full height of the viewport */
+    background-color: whitesmoke;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,21 +10,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(15, 89, 89); /* White background for the form */
-    padding: 15px; /* Keep padding for a compact form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow */
+    background-color: rgb(15, 89, 89);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
     box-sizing: border-box;
-    margin: 20px auto; /* Centered with margin */
+    margin: 20px auto;   
     height: 480px;
 }
 
 .register-form h2 {
-    margin-bottom: 10px; /* Reduced margin for a tighter look */
-    font-size: 1.25rem; /* Slightly smaller font size */
-    color: white; /* Blue color for the title */
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: white;
     text-align: center;
 }
 
@@ -33,45 +32,45 @@
 .register-form input[type="email"],
 .register-form input[type="password"] {
     width: 100%;
-    padding: 8px; /* Reduced padding for a more compact input */
-    margin: 8px 0; /* Reduced margin for consistent spacing */
-    border: 2px solid #ced4da; /* Light gray border for inputs */
-    border-radius: 6px; /* Slightly smaller border radius */
-    font-size: 0.875rem; /* Smaller font size */
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.875rem;
     box-sizing: border-box;
 }
 
 .register-form input[type="text"]:focus,
 .register-form input[type="email"]:focus,
 .register-form input[type="password"]:focus {
-    border-color: #007BFF; /* Blue border color on focus */
+    border-color: #007BFF;
     outline: none;
 }
 
 .register-form button {
     width: 100%;
-    padding: 8px; /* Reduced padding for a more compact button */
-    margin: 8px 0; /* Reduced margin for consistent spacing */
-    border: 2px solid #007BFF; /* Blue border color for the button */
-    border-radius: 6px; /* Slightly smaller border radius */
-    background-color: white; /* White background for the button */
-    color: #007BFF; /* Blue text color for the button */
-    font-size: 0.875rem; /* Smaller font size */
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #007BFF;
+    border-radius: 6px;
+    background-color: white;
+    color: #007BFF;
+    font-size: 0.875rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s, color 0.3s; /* Smooth transition for colors */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Default shadow for button */
+    transition: background-color 0.3s ease, border-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .register-form button:hover {
-    background-color: rgb(15, 89, 89); /* Green background color on hover */
-    color: white; /* White text color on hover */
-    border-color: white; /* Green border color on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    background-color: rgb(15, 89, 89);
+    color: white;
+    border-color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 .register-form .error-message {
-    color: #dc3545; /* Red color for error messages */
-    font-size: 0.75rem; /* Smaller font size for error messages */
-    margin-bottom: 10px; /* Reduced margin for consistent spacing */
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
     text-align: center;
 }

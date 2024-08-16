@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import '../components/About.css';
 import logo from '../assets/images/logo.png';
 
+
 // Define the image URLs for the scrolling images
 const images = [
     '/images/one.jpg',
@@ -25,14 +26,14 @@ const BoxesImages = [
 ];
 
 const BoxesLinks = [
-    { links: 'https://firebrigade.example.com', para: 'Fire Brigade' },
-    { links: 'https://police.example.com', para: 'Police' },
-    { links: 'https://hospital.example.com', para: 'Hospital' },
-    { links: 'https://library.example.com', para: 'Library' },
-    { links: 'https://municipal.example.com', para: 'Electricity' },
-    { links: 'https://school.example.com', para: 'School' },
-    { links: 'https://park.example.com', para: 'Park' },
-    { links: 'https://transit.example.com', para: 'Transit' }
+    { links: 'https://www.pmc.gov.in/en/fire', para: 'Fire Brigade' },
+    { links: 'https://punepolice.gov.in/', para: 'Police' },
+    { links: 'https://www.pmc.gov.in/en/hosp-list', para: 'Hospital' },
+    { links: 'https://www.puneonline.in/guide/libraries-in-pune', para: 'Library' },
+    { links: 'https://www.pmc.gov.in/en/electrical', para: 'Electricity' },
+    { links: 'https://www.pmc.gov.in/en/school-and-learning-centers', para: 'School' },
+    { links: 'https://www.pmc.gov.in/en/garden', para: 'Park' },
+    { links: 'https://www.pmc.gov.in/en/local-transportation-0', para: 'Transit' }
 ];
 
 export default function About() {
@@ -89,6 +90,20 @@ export default function About() {
                 </div>
             </div>
 
+            {/* <div className="about-part">
+                <h1>Welcome to</h1>
+                <h2>My Municipal Mate</h2>
+                <p>
+                    Nagpur Municipal Corporation was initially governed by the City of Nagpur Corporation Act (CNC Act) 1948, till the implementation of Maharashtra Municipal Corporation Act. The CNC Act was repealed in 2012 vide Maharashtra Notification No. 23 Dated 21 August 2012 and thereafter the working of Nagpur Municipal Corporation is governed by Maharashtra Municipal Corporation Act.
+                </p>
+                <p>
+                    The key responsibility for providing basic urban services to the citizens of Nagpur lies with the Nagpur Municipal Corporation. These services include water supply, sewerage, waste management, slum improvement, land use planning, construction and maintenance of roads, street lighting, maintenance of parks and gardens, providing primary health and education facilities, etc.
+                </p>
+                <p>
+                    The Municipal Commissioner is the administrative head of the Municipal Corporation who is assisted by Additional Municipal Commissioner, Deputy Municipal Commissioner, Asst. Municipal Commissioner, and various departmental Heads. NMC coordinates with various other government organizations like NIT, MHADA, MSRTC, the Traffic Police, MPCB, etc., for delivering these basic urban services.
+                </p>
+            </div> */}
+
             <div className="about-part">
                 <h1>{t('welcome')}</h1>
                 <h2>{t('title')}</h2>
@@ -98,7 +113,7 @@ export default function About() {
                     <p>{t('aboutUs.p3')}</p>
                     <p>{t('aboutUs.p4')}</p>
                     <div>
-                        <img src={logo} alt='not-found' style={{height: '250px'}}></img>
+                        <img src= {logo} style={{height:'200px',width:'300px', marginTop:'70px'}}></img>
                     </div>
 
             </div>
