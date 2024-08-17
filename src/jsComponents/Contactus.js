@@ -14,10 +14,10 @@ export default function Contactus() {
 
     const cards = [
         { imgSrc: '/images/chetan.jpg', name: 'Chetan Patil', role: 'Frontend Dev', github: 'https://github.com/chetanpatil06', linkedin: 'https://www.linkedin.com/in/chetan-patil-082938272' },
-        { imgSrc: '/images/saurav.jpg', name: 'Saurav Tiwari', role: 'Integration', github: 'https://github.com/tsaurav03/', linkedin: 'https://www.linkedin.com/in/saurav-tiwari-601217247/' },
+        { imgSrc: '/images/saurav white.png', name: 'Saurav Tiwari', role: 'DevOps Dev', github: 'https://github.com/tsaurav03/', linkedin: 'https://www.linkedin.com/in/saurav-tiwari-601217247/' },
         { imgSrc: '/images/dev.jpg', name: 'Devkaran Singh', role: 'Frontend Dev', github: 'https://github.com/Devkarann', linkedin: 'https://www.linkedin.com/in/dev-karan-singh-3ab87524a' },
         { imgSrc: '/images/kartik.jpeg', name: 'Sharma Kartik', role: 'Frontend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
-        { imgSrc: '/images/dev.jpg', name: 'Himanshu Bhange', role: 'Backend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
+        { imgSrc: '/images/himanshu white.png', name: 'Himanshu Bhange', role: 'Backend Dev', github: 'https://github.com/yourusername1', linkedin: 'https://linkedin.com/in/yourusername1' },
     ];
 
     return (

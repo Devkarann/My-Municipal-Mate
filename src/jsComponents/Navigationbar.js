@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../components/Navigation.css";
 import { getToken, getUsername, removeToken } from "../service/AuthService";
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo2.png';
 
 const Navigationbar = ({ onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,7 +64,7 @@ const Navigationbar = ({ onLogout }) => {
                 <div className="dropdown-content">
                   <button onClick={() => changeLanguage('en')}>En</button>
                   <button onClick={() => changeLanguage('hi')}>हि</button>
-                  <button onClick={() => changeLanguage('mr')}>मर</button>
+                  <button onClick={() => changeLanguage('mr')}>म</button>
                 </div>
               </div>
               
