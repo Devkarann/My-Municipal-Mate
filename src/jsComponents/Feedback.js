@@ -47,7 +47,7 @@ const Feedback = () => {
       );
       navigate("/success"); 
     } catch (err) {
-      const errorMessage = err.response?.data?.message || "An error occurred";
+      const errorMessage = err.response?.data?.message || "Please Sign-In first";
       setError(errorMessage);
     }
   };

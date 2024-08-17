@@ -171,7 +171,7 @@ const ForgetPassword = () => {
             <h4 className="signup-link">
               Don't have an account?{" "}
               <span className="signup-text" onClick={handleSignUpRedirect}>
-                Sign Up
+                Sign In
               </span>
             </h4>
           </div>
