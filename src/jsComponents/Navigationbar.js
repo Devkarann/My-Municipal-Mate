@@ -3,11 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../components/Navigation.css";
 import { getToken, getUsername, removeToken } from "../service/AuthService";
-<<<<<<< HEAD
 import logo2 from '../assets/images/logo2.png'
-=======
-import logo from '../assets/images/logo2.png';
->>>>>>> 87db5c0835f3dc13341cc42eeadcf978e9d28ade
 
 const Navigationbar = ({ onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,14 +44,8 @@ const Navigationbar = ({ onLogout }) => {
     <>
       <div id="outer-nav">
         <div id="nav">
-<<<<<<< HEAD
           <div id="nav-left"><img src={logo2} alt="Error" style={{height:'100px', width:'175px', marginTop:'10px',marginLeft:''
           } }/></div>
-=======
-          <div id="nav-left">
-            <img src={logo} alt="Error" style={{height:'110px', width:'210px', marginTop:'10px'}} />
-          </div>
->>>>>>> 87db5c0835f3dc13341cc42eeadcf978e9d28ade
           <div id="nav-center">
             <ul id="nav-center-ul">
               <li><Link to="/">{t('home')}</Link></li>
