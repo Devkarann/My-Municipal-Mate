@@ -154,7 +154,7 @@ body {
     transform: translateX(0);
 }
 
-#button2 {
+/* #button2 {
     margin-left: 10px;
     cursor: pointer;
 }
@@ -162,5 +162,59 @@ body {
 #button3 {
     margin-left: 5px;
     cursor: pointer;
-}
+} */
+ /* LanguageDropdown.css */
+/* Navigation.css or LanguageDropdown.css */
+
+/* Ensure these styles are applied specifically to the dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text */
+    padding: 10px; /* Adjust padding */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove borders */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  .dropbtn i {
+    font-size: 20px; /* Adjust icon size */
+  }
+  
+  .dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it below the button */
+    background-color: #f9f9f9; /* White background */
+    min-width: 160px; /* Set width of dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow */
+    z-index: 1; /* Place it on top */
+    right: 0; /* Align to the right of the dropdown button */
+    white-space: nowrap; /* Prevent line breaks in buttons */
+  }
+  
+  .dropdown-content button {
+    background-color: white; /* White background */
+    border: none; /* Remove borders */
+    padding: 12px; /* Adjust padding */
+    text-align: center; /* Center text */
+    display: inline-block; /* Display buttons inline */
+    width: auto; /* Auto width to fit content */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #f1f1f1; /* Light grey background on hover */
+  }
+  
+  /* Show dropdown-content when .show class is added */
+  .dropdown.show .dropdown-content {
+    display: flex; /* Display items in a row */
+    flex-direction: row; /* Row direction */
+  }
+  
+  
    

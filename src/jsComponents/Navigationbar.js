@@ -3,10 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../components/Navigation.css";
 import { getToken, getUsername, removeToken } from "../service/AuthService";
+<<<<<<< HEAD
 import logo2 from '../assets/images/logo2.png'
+=======
+import logo from '../assets/images/logo2.png';
+>>>>>>> 87db5c0835f3dc13341cc42eeadcf978e9d28ade
 
 const Navigationbar = ({ onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState(null);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -23,6 +28,10 @@ const Navigationbar = ({ onLogout }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleSignOut = () => {
     removeToken(); // Clear token
     setUsername(null);
@@ -30,38 +39,44 @@ const Navigationbar = ({ onLogout }) => {
     navigate("/"); 
   };
 
-  const changelanguage = (lng) => {
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setIsOpen(false);
   };
 
   return (
     <>
       <div id="outer-nav">
         <div id="nav">
+<<<<<<< HEAD
           <div id="nav-left"><img src={logo2} alt="Error" style={{height:'100px', width:'175px', marginTop:'10px',marginLeft:''
           } }/></div>
+=======
+          <div id="nav-left">
+            <img src={logo} alt="Error" style={{height:'110px', width:'210px', marginTop:'10px'}} />
+          </div>
+>>>>>>> 87db5c0835f3dc13341cc42eeadcf978e9d28ade
           <div id="nav-center">
             <ul id="nav-center-ul">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/ContactUs">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/feed">Feeds</Link>
-              </li>
+              <li><Link to="/">{t('home')}</Link></li>
+              <li><Link to="/ContactUs">{t('contactUs')}</Link></li>
+              <li><Link to="/feed">{t('feeds')}</Link></li>
               <button id="button">
-                <Link to="/complain" id="button-link">
-                  Complain
-                </Link>
+                <Link to="/complain" id="button-link">{t('complain')}</Link>
               </button>
-              <button id="button2" onClick={() => changelanguage("en")}>
-                En
-              </button>
-              <button id="button3" onClick={() => changelanguage("hi")}>
-                हि
-              </button>
+
+              <div className={`dropdown ${isOpen ? "show" : ""}`}>
+                <button className="dropbtn" onClick={toggleDropdown}>
+                  {/* 🌍 World icon */}
+                  <i className="fas fa-globe"></i>
+                </button>
+                <div className="dropdown-content">
+                  <button onClick={() => changeLanguage('en')}>En</button>
+                  <button onClick={() => changeLanguage('hi')}>हि</button>
+                  <button onClick={() => changeLanguage('mr')}>म</button>
+                </div>
+              </div>
+              
             </ul>
           </div>
           <div id="nav-right">
@@ -70,30 +85,14 @@ const Navigationbar = ({ onLogout }) => {
         </div>
       </div>
 
-      {/* Sidebar Menu */}
       <div id="side-menu" className={`side-menu ${isMenuOpen ? "show" : ""}`}>
-        <button className="close-btn" onClick={toggleMenu}>
-          x
-        </button>
+        <button className="close-btn" onClick={toggleMenu}>x</button>
         <ul>
-          {username && <li>Welcome, {username}</li>}
-          {/* <li><Link to="/dashadmin">Dashboard</Link></li> */}
-          <li>
-            <Link to="/feedback">Feedback</Link>
-          </li>
-          <li>
-            <Link to="/adminLogin">Admin Login</Link>
-          </li>
-          <li>
-            <Link to="/password-settings">Password Settings</Link>
-          </li>
-          {/* <li>
-            <Link to="/signout">Sign Out</Link>
-          </li> */}
-
-          <li>
-            <button onClick={handleSignOut}>Sign Out</button>
-          </li>
+          {username && <li>{t('welcome')}, {username}</li>}
+          <li><Link to="/feedback">{t('feedback')}</Link></li>
+          <li><Link to="/adminLogin">{t('adminLogin')}</Link></li>
+          <li><Link to="/password-settings">{t('passwordSettings')}</Link></li>
+          <li><button onClick={handleSignOut}>{t('signOut')}</button></li>
         </ul>
       </div>
     </>

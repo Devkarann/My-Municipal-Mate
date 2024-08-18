@@ -5,6 +5,7 @@
     "complain": "Complain",
     "dashboard": "Dashboard",
     "feedback": "Feedback",
+    "adminLogin": "Admin Login",
     "passwordSettings": "Password Settings",
     "signOut": "Sign Out",
     "taglineOne": "My Municipal Mate",
@@ -19,7 +20,7 @@
       "p4": "At My Municipal Mate, we believe that a healthier, safer, and more responsive city is just a few clicks away. Join us in making your city a better place to live!"
     },
     "quickLinks": "Quick Links",
-    "contactUs": {
+    "contact": {
       "heading": "Contact Us",
       "address": "ACTS-CDAC, Panchavati, Pashan- Pune",
       "email": "Email: mymunicipalmate.com",

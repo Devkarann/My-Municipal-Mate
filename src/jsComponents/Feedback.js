@@ -27,7 +27,7 @@ const Feedback = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Extract token and email from local storage
+    
     const token = getToken();
     const email = getEmailFromToken(token);
 
@@ -47,7 +47,7 @@ const Feedback = () => {
       );
       navigate("/success"); 
     } catch (err) {
-      const errorMessage = err.response?.data?.message || "An error occurred";
+      const errorMessage = err.response?.data?.message || "Please Sign-In first";
       setError(errorMessage);
     }
   };
@@ -101,7 +101,7 @@ const Feedback = () => {
         
 
         <div className="form-group">
-          <label htmlFor="feedback" className="form-label">
+          <label htmlFor="feedback" className="form-label" style={{ color: 'white' }}>
             Feedback
           </label>
           <textarea
@@ -114,7 +114,7 @@ const Feedback = () => {
         </div>
 
         <div className="form-group">
-          <label className="form-label">Rating</label>
+          <label className="form-label" style={{ color: 'white' }}>Rating</label>
           <div className="stars">{renderStars()}</div>
         </div>
 

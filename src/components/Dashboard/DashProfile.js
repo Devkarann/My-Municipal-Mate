@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./DashProfile.css";
 import { useNavigate } from "react-router-dom";
 
 const AssignTeamComponent = () => {
@@ -24,7 +25,7 @@ const AssignTeamComponent = () => {
         }
       );
       setMessage(response.data);
-      
+
       //navigate("/complaints");
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -38,23 +39,27 @@ const AssignTeamComponent = () => {
   };
 
   return (
-    <div className="assign-team-form">
-      <h2>Assign Team to Complaint</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="complaintId">Complaint ID</label>
-          <input
-            type="text"
-            id="complaintId"
-            value={complaintId}
-            onChange={(e) => setComplaintId(e.target.value)}
-            required
-          />
+    <>
+      <div className="container">
+        <div className="assign-team-form">
+          <h2>Assign Team to Complaint</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="complaintId">Complaint ID</label>
+              <input
+                type="text"
+                id="complaintId"
+                value={complaintId}
+                onChange={(e) => setComplaintId(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit">Assign Team</button>
+          </form>
+          {message && <p>{message}</p>}
         </div>
-        <button type="submit">Assign Team</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+      </div>
+    </>
   );
 };
 
