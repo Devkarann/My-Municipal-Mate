@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../components/About.css';
-import logo from '../assets/images/logo.png';
+import logo2 from '../assets/images/logo2.png';
 
 
 // Define the image URLs for the scrolling images
 const images = [
-    '/images/one.jpg',
-    '/images/twoo.jpg',
-    '/images/three.jpg',
+    '/images/dustbin.jpg',
+    '../images/construction.jpg',
+    '../images/streetlamp.jpg',
     // Add more image paths here
 ];
 const truckImage = '/images/tru.png'; // Direct path to the truck image
@@ -113,7 +113,7 @@ export default function About() {
                     <p>{t('aboutUs.p3')}</p>
                     <p>{t('aboutUs.p4')}</p>
                     <div>
-                        <img src= {logo} style={{height:'200px',width:'300px', marginTop:'70px'}}></img>
+                        <img src= {logo2} style={{height:'200px',width:'280px', marginTop:'70px'}}></img>
                     </div>
 
             </div>
